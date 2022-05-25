@@ -55,6 +55,7 @@ func (br *WABridge) RegisterCommands() {
 	proc := br.CommandProcessor.(*commands.Processor)
 	proc.AddHandlers(
 		cmdSetRelay,
+		cmdCheckRelay
 		cmdUnsetRelay,
 		cmdInviteLink,
 		cmdResolveLink,
@@ -122,6 +123,28 @@ func fnSetRelay(ce *WrappedCommandEvent) {
 		ce.Reply("Messages from non-logged-in users in this room will now be bridged through your WhatsApp account")
 	}
 }
+//ss
+
+var cmdCheckRelay = &commands.FullHandler{
+	Func: wrapCommand(fnCheckRelay),
+	Name: "check-relay",
+	Help: commands.HelpMeta{
+		Section:     HelpSectionPortalManagement,
+		Description: "Check if relay mode is active",
+	},
+	RequiresPortal: true,
+	RequiresLogin:  true,
+}
+
+func fnCheckRelay(ce *WrappedCommandEvent) {
+	if !ce.Bridge.Config.Bridge.Relay.Enabled {
+		ce.Reply("BridgeReplyY9kZ6true")
+	}  else {
+		ce.Reply("BridgeReplyY9kZ6false")
+	}
+}
+
+//ss
 
 var cmdUnsetRelay = &commands.FullHandler{
 	Func: wrapCommand(fnUnsetRelay),
