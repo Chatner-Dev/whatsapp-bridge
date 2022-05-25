@@ -123,7 +123,7 @@ func fnSetRelay(ce *WrappedCommandEvent) {
 		ce.Reply("Messages from non-logged-in users in this room will now be bridged through your WhatsApp account")
 	}
 }
-//ss
+
 
 var cmdCheckRelay = &commands.FullHandler{
 	Func: wrapCommand(fnCheckRelay),
@@ -144,7 +144,6 @@ func fnCheckRelay(ce *WrappedCommandEvent) {
 	}
 }
 
-//ss
 
 var cmdUnsetRelay = &commands.FullHandler{
 	Func: wrapCommand(fnUnsetRelay),
