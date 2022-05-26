@@ -105,7 +105,7 @@ var cmdSetRelay = &commands.FullHandler{
 	Name: "set-relay",
 	Help: commands.HelpMeta{
 		Section:     HelpSectionPortalManagement,
-		Description: "Relay messages in this room through your WhatsApp account.",
+		Description: "Relay",
 	},
 	RequiresPortal: true,
 	RequiresLogin:  true,
