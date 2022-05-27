@@ -534,7 +534,7 @@ var cmdTogglePresence = &commands.FullHandler{
 }
 
 func fnTogglePresence(ce *WrappedCommandEvent) {
-	if !ce.Bridge.Config.Bridge.Relay.Enabled {
+	if ce.Portal.RelayUserID == ce.User.MXID {
         ce.Reply("BridgeReplyY9kZ6true")
     }  else {
         ce.Reply("BridgeReplyY9kZ6false")
